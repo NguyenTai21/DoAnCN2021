@@ -1,0 +1,30 @@
+﻿@model IEnumerable<DoAnCN2021.Models.Teacher>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout_Admin.cshtml";
+}
+
+
+
+<p>
+    <input type="button" value="Create" onclick="location.href='@Url.Action("Create", "Teachers")'" />
+</p>
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4">
+            <h3>@Html.DisplayFor(model => item.Name) </h3>
+
+            <li class=" img-course"><img src="@Html.DisplayFor(model => item.Image)" height="100px" width="100px" /></li>
+            <input type="button" value="Detail" onclick="location.href='@Url.Action("Details", "Teachers",new { id = item.Id })'" />
+            <input type="button" value="Edit" onclick="location.href='@Url.Action("Edit", "Teachers",new { id = item.Id })'" />
+            <input type="button" value="Delete" onclick="location.href='@Url.Action("Delete", "Teachers",new { id = item.Id })'" />
+
+            <div>
+                <input type="button" value="Add" onclick="location.href='@Url.Action("ShowListCourseTC", ".....",new { id = item.Id })'" />
+            </div>
+        </div>
+
+    }
+</div>

@@ -1,0 +1,30 @@
+﻿@model IEnumerable<DoAnCN2021.Models.Category>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout_Admin.cshtml";
+}
+
+<h2>Category List</h2>
+
+<p>
+    <input type="button" value="Create New" onclick="location.href='@Url.Action("Create", "Categories")'" />
+    
+</p>
+<div class="row">
+    @foreach (var item in Model)
+    {
+    <div class="col-md-4">
+        <h3>@Html.DisplayFor(model => item.Name)  </h3>
+        <ul>
+            <q> this is decription </q>
+        </ul>
+        <li>   <input type="button" value="View Detail" onclick="location.href='@Url.Action("Details", "Categories",new { id = item.Id })'" /></li>
+        <li>   <input type="button" value="Edit" onclick="location.href='@Url.Action("Edit", "Categories",new { id = item.Id })'" /></li>      
+        <div>
+            <input type="button" value="Show List" onclick="location.href='@Url.Action("ShowListCourse", "Categories",new { id = item.Id })'" />
+        </div>
+    </div>
+
+    }
+</div>
